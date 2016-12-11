@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.admin.appintheair.MainActivity"
+    android:layout_weight="4">
+
+
+    <LinearLayout
+        android:id="@+id/departure_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="4">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/departure_airport_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Departure airport"
+            android:selectAllOnFocus="true"
+            android:layout_weight="3"/>
+
+
+        <EditText
+            android:id="@+id/departure_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:layout_weight="1"
+            android:onClick="setDate"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/arrival_layout"
+        android:layout_below="@+id/departure_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:weightSum="4"
+        android:layout_weight="1">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/arrival_airport_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Arrival airport"
+            android:layout_below="@+id/departure_airport_editText"
+            android:selectAllOnFocus="true"
+            android:layout_weight="3"/>
+
+        <EditText
+            android:id="@+id/arrival_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:layout_weight="1"
+            android:onClick="setDate2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_weight="1"
+            android:clickable="false">
+
+            <ImageButton
+                android:id="@+id/adults_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/adult"
+                android:scaleType="fitXY"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <EditText
+                android:id="@+id/adults_edit_text"
+                android:layout_width="0dp"
+                android:maxWidth="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:clickable="false"
+                android:contextClickable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/kids_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/kid"
+                android:scaleType="fitXY"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <EditText
+                android:id="@+id/kids_edit_text"
+                android:layout_width="0dp"
+                android:maxWidth="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="0"
+                android:clickable="false"
+                android:contextClickable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/baby_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/baby"
+                android:scaleType="fitXY"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <EditText
+                android:id="@+id/baby_edit_text"
+                android:layout_width="0dp"
+                android:maxWidth="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="0"
+                android:clickable="false"
+                android:contextClickable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:textAlignment="center" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:text="Find me some flights!"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="38dp"
+        android:id="@+id/search_button"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"/>
+
+
+</LinearLayout>
