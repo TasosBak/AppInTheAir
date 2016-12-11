@@ -41,6 +41,7 @@ import java.util.concurrent.TimeoutException;
 
 public class MainActivity extends AppCompatActivity {
 
+    //change for commit test
     private static final String API_KEY = BuildConfig.API_KEY;
     final String LOG_CAT = "****";
     List<String> values = new ArrayList<String>();
