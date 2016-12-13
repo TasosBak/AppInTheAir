@@ -5,14 +5,17 @@ package com.example.admin.appintheair;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,6 +25,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -42,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity{
 
     //change for commit test
 
@@ -74,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Calendar calendar;
     private int day, month, year;
-    EditText departureDate;
-    EditText arrivalDate;
+    TextView departureDate;
+    TextView arrivalDate;
+    static TextView arriveBy;
     DatePicker datePicker;
     String departureDateString;
     String arrivalDateString;
@@ -89,16 +94,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        departureDate = (EditText)findViewById(R.id.departure_date);
-        arrivalDate = (EditText)findViewById(R.id.arrival_date);
+        departureDate = (TextView)findViewById(R.id.departure_date);
+        //arrivalDate = (TextView)findViewById(R.id.arrival_date);
+
+        arriveBy = (TextView)findViewById(R.id.arrive_by);
+
         calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
         showDate(departureDate, year, month+1, day);
-        showDate(arrivalDate, year, month+1, day);
+        //showDate(arrivalDate, year, month+1, day);
 
 
+        arriveBy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialog(v);
+            }
+        });
 
 
 
@@ -580,86 +594,35 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    //time picker
 
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
 
+    public static class TimePickerFragment extends DialogFragment implements
+            TimePickerDialog.OnTimeSetListener {
 
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
 
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            // Do something with the time chosen by the user
+            arriveBy.setText("Arrive by: " + hourOfDay + ":" + minute);
+        }
+    }
 
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

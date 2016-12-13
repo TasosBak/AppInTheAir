@@ -6,71 +6,59 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.admin.appintheair.MainActivity"
-    android:layout_weight="4">
+    android:weightSum="5">
 
-
-    <LinearLayout
-        android:id="@+id/departure_layout"
-        android:orientation="horizontal"
+    <AutoCompleteTextView
+        android:id="@+id/departure_airport_editText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:inputType="textPersonName"
+        android:hint="Departure airport"
+        android:selectAllOnFocus="true"
+        android:layout_weight="1"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/arrival_airport_editText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:inputType="textPersonName"
+        android:hint="Arrival airport"
+        android:layout_below="@+id/departure_airport_editText"
+        android:selectAllOnFocus="true"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:id="@+id/date_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
         android:layout_weight="1"
-        android:weightSum="4">
+        android:clickable="true">
 
-
-        <AutoCompleteTextView
-            android:id="@+id/departure_airport_editText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Departure airport"
-            android:selectAllOnFocus="true"
-            android:layout_weight="3"/>
-
-
-        <EditText
+        <TextView
             android:id="@+id/departure_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
-            android:layout_weight="1"
-            android:onClick="setDate"/>
+            android:text="Date?"
+            android:onClick="setDate"
+            android:layout_weight="1"/>
 
+        <TextView
+            android:id="@+id/arrive_by"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Arrive By?"
+            android:layout_weight="1"
+            android:onClick="showDatePickerDialog"/>
 
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/arrival_layout"
-        android:layout_below="@+id/departure_layout"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="4"
-        android:layout_weight="1">
 
 
-        <AutoCompleteTextView
-            android:id="@+id/arrival_airport_editText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Arrival airport"
-            android:layout_below="@+id/departure_airport_editText"
-            android:selectAllOnFocus="true"
-            android:layout_weight="3"/>
-
-        <EditText
-            android:id="@+id/arrival_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:layout_weight="1"
-            android:onClick="setDate2"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout"
