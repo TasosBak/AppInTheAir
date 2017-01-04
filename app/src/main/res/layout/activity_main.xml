@@ -179,7 +179,8 @@
         android:id="@+id/search_button"
         android:layout_centerHorizontal="true"
         android:layout_weight="1"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:onClick="sendMessage" />
 
 
 </LinearLayout>

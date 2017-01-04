@@ -622,7 +622,8 @@ public class MainActivity extends FragmentActivity{
         }
     }
 
-
-
+    public void sendMessage(View view) {
+        // Do something in response to button
+    }
 
 }
